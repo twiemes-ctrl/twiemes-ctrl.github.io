@@ -225,24 +225,37 @@
     .galerie-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(2, 220px);
-      gap: 1rem; margin-top: 2.5rem;
+      gap: 0.8rem; margin-top: 2.5rem;
     }
     .galerie-item {
-      background: #2a2a28;
       border-radius: 4px;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      border: 2px dashed #444;
-      color: #555; font-size: 0.8rem;
-      text-align: center; padding: 1rem;
-      transition: border-color 0.2s;
+      overflow: hidden;
+      aspect-ratio: 4/3;
       cursor: pointer;
+      position: relative;
     }
-    .galerie-item:hover { border-color: var(--accent); color: var(--accent); }
-    .galerie-item .gi-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .galerie-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+      display: block;
+    }
+    .galerie-item:hover img { transform: scale(1.05); }
     .galerie-item:first-child {
-      grid-row: span 2;
+      grid-column: span 1;
+    }
+    /* Lightbox */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,0.92);
+      align-items: center; justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 4px; }
+    .lightbox-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      color: white; font-size: 2rem; cursor: pointer;
+      background: none; border: none;
     }
     .galerie-hint {
       text-align: center; margin-top: 1.5rem;
@@ -506,28 +519,27 @@
     <h2 style="color:var(--cream)">Referenzen &amp; Galerie</h2>
     <p class="section-sub">Bilder sagen mehr als Worte – hier sehen Sie einige meiner abgeschlossenen Projekte.</p>
     <div class="galerie-grid">
-      <div class="galerie-item">
-        <div class="gi-icon">🖼️</div>
-        Foto 1<br/><small>z.B. Tapezierung Wohnzimmer</small>
-      </div>
-      <div class="galerie-item">
-        <div class="gi-icon">🖼️</div>
-        Foto 2<br/><small>z.B. Wandgestaltung</small>
-      </div>
-      <div class="galerie-item">
-        <div class="gi-icon">🖼️</div>
-        Foto 3<br/><small>z.B. Innenrenovierung</small>
-      </div>
-      <div class="galerie-item">
-        <div class="gi-icon">🖼️</div>
-        Foto 4<br/><small>z.B. Schönheitsreparatur</small>
-      </div>
-      <div class="galerie-item">
-        <div class="gi-icon">🖼️</div>
-        Foto 5<br/><small>z.B. Vorher / Nachher</small>
-      </div>
+      <div class="galerie-item" onclick="openLightbox('foto1.jpeg')"><img src="foto1.jpeg" alt="Tapezierung Muster" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto2.jpeg')"><img src="foto2.jpeg" alt="Wandgestaltung" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto3.jpeg')"><img src="foto3.jpeg" alt="Tapezierung Tür" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto4.jpeg')"><img src="foto4.jpeg" alt="Bodenarbeiten" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto5.jpeg')"><img src="foto5.jpeg" alt="Wand & Decke" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto6.jpeg')"><img src="foto6.jpeg" alt="Mustertapete" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto7.jpeg')"><img src="foto7.jpeg" alt="Deckenarbeiten" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto8.jpeg')"><img src="foto8.jpeg" alt="Wandgestaltung grau" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto9.jpeg')"><img src="foto9.jpeg" alt="Laminat verlegt" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto10.jpeg')"><img src="foto10.jpeg" alt="Renovierung fertig" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto11.jpeg')"><img src="foto11.jpeg" alt="Wand weiß" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto12.jpeg')"><img src="foto12.jpeg" alt="Küche Tapete" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto13.jpeg')"><img src="foto13.jpeg" alt="Zimmer tapeziert" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto14.jpeg')"><img src="foto14.jpeg" alt="Zimmer mit Laminat" loading="lazy"/></div>
     </div>
-    <p class="galerie-hint">💡 Ersetzen Sie die Platzhalter einfach durch Ihre eigenen Fotos von MyHammer</p>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <img id="lightbox-img" src="" alt="Galerie Bild"/>
+    </div>
   </section>
 
   <!-- KONTAKT -->
@@ -663,6 +675,14 @@
 </div>
 
 <script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+
   function showPage(page) {
     const main = document.getElementById('mainContent');
     const impressum = document.getElementById('impressumPage');

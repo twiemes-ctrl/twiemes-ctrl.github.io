@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raumausstattung Toni Wiemes – Innenrenovierung & Gestaltung, Gutenberg</title>
+  <meta name="description" content="Raumausstattung & Innenrenovierung in Gutenberg und Umgebung. Tapezierarbeiten, Wände & Decken gestalten, Schönheitsreparaturen. Jetzt anfragen!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --warm-white: #faf8f4;
+      --dark: #1a1a18;
+      --mid: #3d3d38;
+      --accent: #b5862a;
+      --accent-light: #d4a84b;
+      --soft: #e8e0d0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--warm-white);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(250,248,244,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--soft);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--dark); letter-spacing: 0.04em;
+    }
+    .nav-logo span { color: var(--accent); }
+    nav a {
+      text-decoration: none; color: var(--mid);
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-left: 2rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--accent); }
+    .nav-tel {
+      background: var(--accent);
+      color: white !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2px;
+    }
+    .nav-tel:hover { background: var(--accent-light); color: white !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      background: var(--dark);
+      position: relative; overflow: hidden;
+      padding: 8rem 2.5rem 4rem;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(181,134,42,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 10% 80%, rgba(181,134,42,0.08) 0%, transparent 50%);
+    }
+    .hero-pattern {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: repeating-linear-gradient(
+        45deg, #fff 0, #fff 1px, transparent 0, transparent 50%
+      );
+      background-size: 20px 20px;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 680px;
+      animation: fadeUp 0.9s ease both;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.5rem;
+      border: 1px solid var(--accent);
+      padding: 0.35rem 0.9rem; border-radius: 2px;
+    }
+    #hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900; line-height: 1.1;
+      color: var(--cream); margin-bottom: 1.5rem;
+    }
+    #hero h1 em { color: var(--accent); font-style: normal; }
+    #hero p {
+      font-size: 1.1rem; line-height: 1.75;
+      color: #aaa8a0; margin-bottom: 2.5rem; max-width: 480px;
+    }
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent); color: white;
+      padding: 0.9rem 2rem; border-radius: 2px;
+      font-weight: 700; font-size: 0.85rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.3); color: var(--cream);
+      padding: 0.9rem 2rem; border-radius: 2px;
+      font-weight: 700; font-size: 0.85rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .hero-since {
+      position: absolute; bottom: 2.5rem; right: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem; font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      line-height: 1; user-select: none;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 2.5rem; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.8rem;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900; line-height: 1.15;
+      color: var(--dark); margin-bottom: 1.2rem;
+    }
+    .section-sub {
+      font-size: 1rem; color: #666; line-height: 1.7;
+      max-width: 540px; margin-bottom: 3rem;
+    }
+
+    /* ── LEISTUNGEN ── */
+    #leistungen { background: var(--cream); }
+    .leistungen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .leistung-card {
+      background: var(--warm-white);
+      border: 1px solid var(--soft);
+      padding: 2rem 1.8rem;
+      border-radius: 4px;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .leistung-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--accent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .leistung-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); border-color: transparent; }
+    .leistung-card:hover::before { transform: scaleX(1); }
+    .leistung-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .leistung-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 700;
+      margin-bottom: 0.6rem; color: var(--dark);
+    }
+    .leistung-card p { font-size: 0.9rem; color: #777; line-height: 1.65; }
+
+    /* ── ÜBER MICH ── */
+    #ueber { background: var(--warm-white); }
+    .ueber-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+      max-width: 1100px;
+    }
+    .ueber-photo-box {
+      background: var(--soft);
+      aspect-ratio: 4/5;
+      border-radius: 4px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      border: 2px dashed #ccc;
+      color: #aaa; text-align: center; padding: 2rem;
+      font-size: 0.85rem; line-height: 1.6;
+    }
+    .ueber-photo-box .photo-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .ueber-text p {
+      font-size: 1rem; color: #555; line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+    .ueber-stats {
+      display: flex; gap: 2.5rem;
+      margin-top: 2rem; padding-top: 2rem;
+      border-top: 1px solid var(--soft);
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 900;
+      color: var(--accent); display: block;
+    }
+    .stat-label { font-size: 0.78rem; color: #999; letter-spacing: 0.08em; }
+
+    /* ── GALERIE ── */
+    #galerie { background: var(--dark); }
+    #galerie h2 { color: var(--cream); }
+    #galerie .section-sub { color: #888; }
+    .galerie-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem; margin-top: 2.5rem;
+    }
+    .galerie-item {
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      position: relative;
+    }
+    .galerie-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+      display: block;
+    }
+    .galerie-item:hover img { transform: scale(1.05); }
+    .galerie-item:first-child {
+      grid-column: span 1;
+    }
+    /* Lightbox */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,0.92);
+      align-items: center; justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 4px; }
+    .lightbox-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      color: white; font-size: 2rem; cursor: pointer;
+      background: none; border: none;
+    }
+    .galerie-hint {
+      text-align: center; margin-top: 1.5rem;
+      font-size: 0.85rem; color: #666;
+    }
+
+    /* ── KONTAKT ── */
+    #kontakt { background: var(--cream); }
+    .kontakt-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; max-width: 1000px;
+    }
+    .kontakt-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; margin-bottom: 1.5rem;
+    }
+    .kontakt-item {
+      display: flex; align-items: flex-start;
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .kontakt-item-icon {
+      width: 40px; height: 40px;
+      background: var(--accent);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .kontakt-item-text strong {
+      display: block; font-size: 0.75rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: #999; margin-bottom: 0.2rem;
+    }
+    .kontakt-item-text a {
+      color: var(--dark); text-decoration: none;
+      font-size: 1rem; font-weight: 700;
+      transition: color 0.2s;
+    }
+    .kontakt-item-text a:hover { color: var(--accent); }
+    .kontakt-item-text span { font-size: 0.95rem; color: var(--mid); }
+
+    .kontakt-form { }
+    .kontakt-form h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; margin-bottom: 1.5rem;
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block; font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #888;
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      background: var(--warm-white);
+      color: var(--dark);
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none; border-color: var(--accent);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      background: var(--accent); color: white;
+      border: none; cursor: pointer;
+      padding: 0.9rem 2.2rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+      width: 100%;
+    }
+    .form-submit:hover { background: var(--accent-light); transform: translateY(-2px); }
+    .datenschutz-hint {
+      font-size: 0.75rem; color: #999;
+      margin-top: 0.8rem; line-height: 1.5;
+    }
+    .datenschutz-hint a { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: #666;
+      padding: 3rem 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .footer-logo span { color: var(--accent); }
+    footer p { font-size: 0.85rem; margin-bottom: 0.4rem; }
+    .footer-links { margin: 1.5rem 0; }
+    .footer-links a {
+      color: #777; text-decoration: none;
+      font-size: 0.8rem; margin: 0 1rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.75rem; color: #444; margin-top: 1.5rem; }
+
+    /* ── LEGAL PAGES ── */
+    .legal-section {
+      display: none;
+      padding: 8rem 2.5rem 4rem;
+      max-width: 800px; margin: 0 auto;
+    }
+    .legal-section.active { display: block; }
+    .legal-section h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; margin-bottom: 2rem; color: var(--dark);
+    }
+    .legal-section h2 {
+      font-size: 1.2rem; margin: 2rem 0 0.6rem;
+    }
+    .legal-section p, .legal-section li {
+      font-size: 0.95rem; color: #555;
+      line-height: 1.75; margin-bottom: 0.8rem;
+    }
+    .legal-section ul { padding-left: 1.5rem; }
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: var(--accent); text-decoration: none;
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .back-btn:hover { text-decoration: underline; }
+
+    /* ── UTILS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .main-content { }
+    .main-content.hidden { display: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.2rem; }
+      nav .nav-links { display: none; }
+      section { padding: 4rem 1.2rem; }
+      .ueber-inner, .kontakt-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .galerie-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .galerie-item:first-child { grid-row: span 1; }
+      .hero-since { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Raumausstattung <span>Wiemes</span></div>
+  <div class="nav-links">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#ueber">Über mich</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="tel:015122303403" class="nav-tel">☎ Anrufen</a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="main-content" id="mainContent">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Gutenberg &amp; Umgebung · Seit 2015</div>
+      <h1>Ihr Zuhause.<br/><em>Neu gedacht.</em></h1>
+      <p>Tapezierarbeiten, Innenrenovierung und Raumgestaltung – handwerklich sauber, termingerecht und mit echtem Gespür für schöne Räume.</p>
+      <div class="hero-buttons">
+        <a href="#kontakt" class="btn-primary">Kostenlos anfragen</a>
+        <a href="#leistungen" class="btn-outline">Leistungen ansehen</a>
+      </div>
+    </div>
+    <div class="hero-since">2015</div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section id="leistungen">
+    <div class="section-label">Was ich anbiete</div>
+    <h2>Meine Leistungen</h2>
+    <p class="section-sub">Von der einfachen Schönheitsreparatur bis zur kompletten Innenrenovierung – ich erledige das für Sie.</p>
+    <div class="leistungen-grid">
+      <div class="leistung-card">
+        <div class="leistung-icon">🖼️</div>
+        <h3>Tapezierarbeiten</h3>
+        <p>Ob klassische Raufaser, moderne Vliestapeten oder aufwendige Mustertapeten – ich tapeziere fachgerecht und sauber.</p>
+      </div>
+      <div class="leistung-card">
+        <div class="leistung-icon">🏠</div>
+        <h3>Raumausstattung</h3>
+        <p>Bodenbeläge, Wandgestaltung und dekorative Elemente – ich gestalte Ihren Wohnraum nach Ihren Wünschen.</p>
+      </div>
+      <div class="leistung-card">
+        <div class="leistung-icon">🎨</div>
+        <h3>Wände &amp; Decken gestalten</h3>
+        <p>Renovierungsarbeiten, Spachteln, Grundieren – für ein gepflegtes und frisches Erscheinungsbild.</p>
+      </div>
+      <div class="leistung-card">
+        <div class="leistung-icon">✨</div>
+        <h3>Schönheitsreparaturen</h3>
+        <p>Auszug, Einzug oder einfach mal frisch machen – schnelle und saubere Renovierungsarbeiten zu fairen Preisen.</p>
+      </div>
+      <div class="leistung-card">
+        <div class="leistung-icon">🔧</div>
+        <h3>Innenrenovierung</h3>
+        <p>Komplette Renovierung von Wohnungen und Häusern – alles aus einer Hand, ohne viel Koordinationsaufwand für Sie.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER MICH -->
+  <section id="ueber">
+    <div class="ueber-inner">
+      <div class="ueber-photo-box" style="background:none; border:none; padding:0; overflow:hidden;">
+        <img src="me.jpg" alt="Toni Wiemes" style="width:100%; height:100%; object-fit:cover; border-radius:4px;"/>
+      </div>
+      <div class="ueber-text">
+        <div class="section-label">Über mich</div>
+        <h2>Toni Wiemes –<br/>Raumausstattung mit Leidenschaft</h2>
+        <p>Seit 2015 bin ich als selbstständiger Raumausstatter in Gutenberg und der Region tätig. Was als handwerkliche Leidenschaft begann, ist heute mein Beruf – und diese Begeisterung merken Sie in jedem Projekt.</p>
+        <p>Als Ein-Mann-Betrieb arbeite ich persönlich bei Ihnen vor Ort. Kein Subunternehmer, keine Überraschungen – Sie wissen immer, wer bei Ihnen arbeitet.</p>
+        <p>Meine Kunden schätzen besonders die saubere Arbeitsweise, die Verlässlichkeit und die faire Preisgestaltung.</p>
+        <div class="ueber-stats">
+          <div class="stat-item">
+            <span class="stat-num">10+</span>
+            <span class="stat-label">Jahre Erfahrung</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Persönlicher Einsatz</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">1</span>
+            <span class="stat-label">Ansprechpartner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie">
+    <div class="section-label">Meine Arbeiten</div>
+    <h2 style="color:var(--cream)">Referenzen &amp; Galerie</h2>
+    <p class="section-sub">Bilder sagen mehr als Worte – hier sehen Sie einige meiner abgeschlossenen Projekte.</p>
+    <div class="galerie-grid">
+      <div class="galerie-item" onclick="openLightbox('foto1.jpeg')"><img src="foto1.jpeg" alt="Tapezierung Muster" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto2.jpeg')"><img src="foto2.jpeg" alt="Wandgestaltung" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto3.jpeg')"><img src="foto3.jpeg" alt="Tapezierung Tür" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto4.jpeg')"><img src="foto4.jpeg" alt="Bodenarbeiten" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto5.jpeg')"><img src="foto5.jpeg" alt="Wand & Decke" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto6.jpeg')"><img src="foto6.jpeg" alt="Mustertapete" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto7.jpeg')"><img src="foto7.jpeg" alt="Deckenarbeiten" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto8.jpeg')"><img src="foto8.jpeg" alt="Wandgestaltung grau" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto9.jpeg')"><img src="foto9.jpeg" alt="Laminat verlegt" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto10.jpeg')"><img src="foto10.jpeg" alt="Renovierung fertig" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto11.jpeg')"><img src="foto11.jpeg" alt="Wand weiß" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto12.jpeg')"><img src="foto12.jpeg" alt="Küche Tapete" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto13.jpeg')"><img src="foto13.jpeg" alt="Zimmer tapeziert" loading="lazy"/></div>
+      <div class="galerie-item" onclick="openLightbox('foto14.jpeg')"><img src="foto14.jpeg" alt="Zimmer mit Laminat" loading="lazy"/></div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <img id="lightbox-img" src="" alt="Galerie Bild"/>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt">
+    <div class="section-label">Jetzt anfragen</div>
+    <h2>Kontakt</h2>
+    <p class="section-sub">Rufen Sie einfach an oder schreiben Sie mir – ich melde mich schnellstmöglich zurück.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; max-width:900px; margin-top:2rem;">
+      <div>
+        <div class="kontakt-item">
+          <div class="kontakt-item-icon">📞</div>
+          <div class="kontakt-item-text">
+            <strong>Telefon</strong>
+            <a href="tel:015122303403">0151 22303403</a>
+          </div>
+        </div>
+        <div class="kontakt-item">
+          <div class="kontakt-item-icon">✉️</div>
+          <div class="kontakt-item-text">
+            <strong>E-Mail</strong>
+            <a href="mailto:info@raumausstattung-wiemes.de">info@raumausstattung-wiemes.de</a>
+          </div>
+        </div>
+        <div class="kontakt-item">
+          <div class="kontakt-item-icon">📍</div>
+          <div class="kontakt-item-text">
+            <strong>Standort</strong>
+            <span>Hauptstraße 28<br/>55595 Gutenberg &amp; Umgebung</span>
+          </div>
+        </div>
+        <div class="kontakt-item">
+          <div class="kontakt-item-icon">🕐</div>
+          <div class="kontakt-item-text">
+            <strong>Erreichbarkeit</strong>
+            <span>Mo – Fr: 7:00 – 18:00 Uhr<br/>Sa: nach Vereinbarung</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:center; gap:1rem;">
+        <a href="mailto:info@raumausstattung-wiemes.de?subject=Anfrage%20Raumausstattung&body=Guten%20Tag%20Herr%20Wiemes,%0A%0Aich%20interessiere%20mich%20für%20Ihre%20Leistungen.%0A%0AMeine%20Anfrage:%0A%0AMit%20freundlichen%20Grüßen"
+           style="display:block; background:var(--accent); color:white; text-align:center; padding:1.2rem 2rem; border-radius:2px; font-weight:700; font-size:1rem; letter-spacing:0.08em; text-decoration:none; transition:background 0.2s;"
+           onmouseover="this.style.background='#d4a84b'" onmouseout="this.style.background='var(--accent)'">✉ E-Mail schreiben</a>
+        <a href="tel:015122303403"
+           style="display:block; border:2px solid var(--accent); color:var(--accent); text-align:center; padding:1.1rem 2rem; border-radius:2px; font-weight:700; font-size:1rem; letter-spacing:0.08em; text-decoration:none; transition:all 0.2s;"
+           onmouseover="this.style.background='var(--accent)';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='var(--accent)'">☎ Jetzt anrufen</a>
+        <p style="font-size:0.78rem; color:#999; margin-top:0.5rem; line-height:1.5;">
+          Weitere Infos in der <a href="#" onclick="showPage('datenschutz')" style="color:var(--accent);">Datenschutzerklärung</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Raumausstattung <span>Wiemes</span></div>
+    <p>Toni Wiemes · Hauptstraße 28 · 55595 Gutenberg</p>
+    <p><a href="tel:015122303403" style="color:#888; text-decoration:none;">0151 22303403</a></p>
+    <div class="footer-links">
+      <a href="#" onclick="showPage('impressum')">Impressum</a>
+      <a href="#" onclick="showPage('datenschutz')">Datenschutz</a>
+    </div>
+    <p class="footer-copy">© 2026 Toni Wiemes Raumausstattung · Alle Rechte vorbehalten</p>
+  </footer>
+
+</div><!-- /main-content -->
+
+
+<!-- IMPRESSUM -->
+<div class="legal-section" id="impressumPage">
+  <div style="max-width:800px; margin:0 auto;">
+    <a href="#" class="back-btn" onclick="showPage('main')">← Zurück zur Website</a>
+    <h1>Impressum</h1>
+    <h2>Angaben gemäß § 5 TMG</h2>
+    <p>
+      Toni Wiemes<br/>
+      Raumausstattung<br/>
+      Hauptstraße 28<br/>
+      55595 Gutenberg
+    </p>
+    <h2>Kontakt</h2>
+    <p>
+      Telefon: 0151 22303403<br/>
+      E-Mail: info@raumausstattung-wiemes.de
+    </p>
+    <h2>Umsatzsteuer-ID</h2>
+    <p>
+      [Falls vorhanden: Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG bitte ergänzen.<br/>
+      Kleinunternehmer nach § 19 UStG sind hiervon befreit.]
+    </p>
+    <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
+    <p>
+      Berufsbezeichnung: Raumausstatter<br/>
+      Zuständige Handwerkskammer: [Handwerkskammer Rheinhessen oder zuständige Kammer ergänzen]
+    </p>
+    <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+    <p>Toni Wiemes, [Adresse wie oben]</p>
+    <h2>Streitschlichtung</h2>
+    <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank">https://ec.europa.eu/consumers/odr/</a></p>
+    <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    <h2>Haftung für Inhalte</h2>
+    <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+  </div>
+</div>
+
+<!-- DATENSCHUTZ -->
+<div class="legal-section" id="datenschutzPage">
+  <div style="max-width:800px; margin:0 auto;">
+    <a href="#" class="back-btn" onclick="showPage('main')">← Zurück zur Website</a>
+    <h1>Datenschutzerklärung</h1>
+    <h2>1. Datenschutz auf einen Blick</h2>
+    <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.</p>
+    <h2>2. Verantwortliche Stelle</h2>
+    <p>
+      Toni Wiemes<br/>
+      Hauptstraße 28<br/>
+      55595 Gutenberg<br/>
+      Telefon: 0151 22303403<br/>
+      E-Mail: info@raumausstattung-wiemes.de
+    </p>
+    <h2>3. Datenerfassung auf dieser Website</h2>
+    <p><strong>Kontaktformular:</strong> Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.</p>
+    <p><strong>Server-Log-Dateien:</strong> Der Provider dieser Website erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt. Dies sind: Browsertyp, Betriebssystem, Referrer-URL, Hostname, Uhrzeit der Anfrage. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
+    <h2>4. Ihre Rechte</h2>
+    <p>Sie haben jederzeit das Recht auf Auskunft über die bei uns gespeicherten Daten, das Recht auf Berichtigung, Löschung oder Einschränkung der Verarbeitung sowie das Recht auf Datenübertragbarkeit. Wenden Sie sich hierfür an die oben genannte Kontaktadresse.</p>
+    <h2>5. Beschwerderecht</h2>
+    <p>Sie haben das Recht, sich bei der zuständigen Datenschutzaufsichtsbehörde zu beschweren. Die zuständige Behörde in Rheinland-Pfalz ist: Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz, Hintere Bleiche 34, 55116 Mainz.</p>
+    <h2>6. Speicherdauer</h2>
+    <p>Anfragen über das Kontaktformular werden nach abschließender Bearbeitung gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+  </div>
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+
+  function showPage(page) {
+    const main = document.getElementById('mainContent');
+    const impressum = document.getElementById('impressumPage');
+    const datenschutz = document.getElementById('datenschutzPage');
+
+    main.classList.remove('hidden');
+    impressum.classList.remove('active');
+    datenschutz.classList.remove('active');
+
+    if (page === 'impressum') {
+      main.classList.add('hidden');
+      impressum.classList.add('active');
+      window.scrollTo(0,0);
+    } else if (page === 'datenschutz') {
+      main.classList.add('hidden');
+      datenschutz.classList.add('active');
+      window.scrollTo(0,0);
+    } else {
+      window.scrollTo(0,0);
+    }
+    return false;
+  }
+
+  function handleFormSubmit() {
+    alert('Vielen Dank für Ihre Anfrage!\nToni Wiemes meldet sich schnellstmöglich bei Ihnen.\n\nTelefon: 0151 22303403');
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#' || href.startsWith('#') === false) return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
